@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vagas de estágio e emprego para estudantes do Inatel">
+    <title>Vagas - Inatel</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/vagas.css">
+</head>
+<body>
+    <!-- Header / Navbar -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="/" class="nav__logo">
+                <img src="images/logo-inatel.png" alt="Inatel Logo">
+            </a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link">Início</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="index.html#educacao" class="nav__link">Educação</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="index.html#pesquisa" class="nav__link">Pesquisa & Inovação</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="vagas.html" class="nav__link nav__link--highlight">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                            </svg>
+                            Vagas
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="nav__close" id="nav-close">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Vagas -->
+    <section class="vagas-hero">
+        <div class="container">
+            <h1 class="vagas-hero__title">
+                Encontre a <span class="gradient-text">vaga perfeita</span> para você!
+            </h1>
+            <p class="vagas-hero__subtitle">
+                Oportunidades personalizadas de estágio e emprego para estudantes do Inatel
+            </p>
+
+            <!-- Notification Toggle -->
+            <div class="notification-banner" id="notification-banner">
+                <div class="notification-banner__content">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                        <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                    </svg>
+                    <div>
+                        <strong>Ative as notificações!</strong>
+                        <p>Receba alertas quando surgirem vagas compatíveis com seu perfil</p>
+                    </div>
+                </div>
+                <button class="btn btn--primary btn--sm" id="enable-notifications">
+                    Ativar notificações
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Preferências e Filtros -->
+    <section class="vagas-section">
+        <div class="container">
+            <div class="vagas-layout">
+                <!-- Sidebar com filtros -->
+                <aside class="vagas-sidebar">
+                    <div class="sidebar-card">
+                        <div class="sidebar-card__header">
+                            <h3>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M12 16v-4"></path>
+                                    <path d="M12 8h.01"></path>
+                                </svg>
+                                Meu Perfil
+                            </h3>
+                            <span class="match-badge" id="profile-status">Não configurado</span>
+                        </div>
+
+                        <form id="profile-form" class="profile-form">
+                            <div class="form-group">
+                                <label for="curso">Curso</label>
+                                <select id="curso" name="curso" class="form-control">
+                                    <option value="">Selecione seu curso</option>
+                                    <option value="Engenharia de Computação">Engenharia de Computação</option>
+                                    <option value="Engenharia de Software">Engenharia de Software</option>
+                                    <option value="Engenharia de Telecomunicações">Engenharia de Telecomunicações</option>
+                                    <option value="Engenharia Elétrica">Engenharia Elétrica</option>
+                                    <option value="Engenharia de Controle e Automação">Engenharia de Controle e Automação</option>
+                                    <option value="Engenharia de Produção">Engenharia de Produção</option>
+                                    <option value="Engenharia Biomédica">Engenharia Biomédica</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="periodo">Período atual</label>
+                                <select id="periodo" name="periodo" class="form-control">
+                                    <option value="">Selecione o período</option>
+                                    <option value="1">1º período</option>
+                                    <option value="2">2º período</option>
+                                    <option value="3">3º período</option>
+                                    <option value="4">4º período</option>
+                                    <option value="5">5º período</option>
+                                    <option value="6">6º período</option>
+                                    <option value="7">7º período</option>
+                                    <option value="8">8º período</option>
+                                    <option value="9">9º período</option>
+                                    <option value="10">10º período</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Áreas de interesse</label>
+                                <div class="checkbox-group" id="areas-interesse">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="areas" value="Backend">
+                                        <span>Backend</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="areas" value="Frontend">
+                                        <span>Frontend</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="areas" value="Mobile">
+                                        <span>Mobile</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="areas" value="IoT">
+                                        <span>IoT</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="areas" value="IA">
+                                        <span>Inteligência Artificial</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="areas" value="Telecomunicações">
+                                        <span>Telecomunicações</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="areas" value="Redes">
+                                        <span>Redes</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="areas" value="Segurança">
+                                        <span>Segurança</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="areas" value="Cloud">
+                                        <span>Cloud</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="areas" value="Data Science">
+                                        <span>Data Science</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="areas" value="Automação">
+                                        <span>Automação</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn--primary btn--block">
+                                Salvar preferências
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Filtros adicionais -->
+                    <div class="sidebar-card">
+                        <h3>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                            </svg>
+                            Filtros
+                        </h3>
+
+                        <div class="form-group">
+                            <label>Tipo de vaga</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="tipo" value="Estágio" checked>
+                                    <span>Estágio</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="tipo" value="CLT" checked>
+                                    <span>CLT</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Modalidade</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="modalidade" value="Presencial" checked>
+                                    <span>Presencial</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="modalidade" value="Híbrido" checked>
+                                    <span>Híbrido</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="modalidade" value="Remoto" checked>
+                                    <span>Remoto</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button class="btn btn--secondary btn--block" id="clear-filters">
+                            Limpar filtros
+                        </button>
+                    </div>
+                </aside>
+
+                <!-- Lista de vagas -->
+                <main class="vagas-main">
+                    <!-- Estado: Perfil não configurado -->
+                    <div id="profile-required-state" class="profile-required-state">
+                        <div class="profile-required-content">
+                            <div class="profile-required-icon">
+                                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M12 16v-4"></path>
+                                    <path d="M12 8h.01"></path>
+                                </svg>
+                            </div>
+                            <h2>Configure seu perfil primeiro!</h2>
+                            <p>Para ver vagas personalizadas e com match de compatibilidade, você precisa:</p>
+                            <ul class="profile-required-steps">
+                                <li>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg>
+                                    <span><strong>Selecionar seu curso</strong></span>
+                                </li>
+                                <li>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg>
+                                    <span><strong>Informar seu período atual</strong></span>
+                                </li>
+                                <li>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg>
+                                    <span><strong>Escolher suas áreas de interesse</strong></span>
+                                </li>
+                            </ul>
+                            <p class="profile-required-tip">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                                    <path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                                </svg>
+                                Preencha o formulário ao lado para começar!
+                            </p>
+                        </div>
+
+                        <!-- Vagas em blur de fundo -->
+                        <div class="vagas-blur-overlay">
+                            <div class="vaga-card-blur">
+                                <div class="blur-placeholder"></div>
+                                <div class="blur-placeholder short"></div>
+                                <div class="blur-placeholder"></div>
+                            </div>
+                            <div class="vaga-card-blur">
+                                <div class="blur-placeholder"></div>
+                                <div class="blur-placeholder short"></div>
+                                <div class="blur-placeholder"></div>
+                            </div>
+                            <div class="vaga-card-blur">
+                                <div class="blur-placeholder"></div>
+                                <div class="blur-placeholder short"></div>
+                                <div class="blur-placeholder"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Estado: Vagas disponíveis -->
+                    <div id="vagas-available-state" style="display: none;">
+                        <div class="vagas-header">
+                            <div>
+                                <h2>Vagas disponíveis</h2>
+                                <p id="vagas-count">Carregando vagas...</p>
+                            </div>
+                            <div class="vagas-sort">
+                                <label for="sort">Ordenar por:</label>
+                                <select id="sort" class="form-control form-control--sm">
+                                    <option value="match">Melhor match</option>
+                                    <option value="recentes">Mais recentes</option>
+                                    <option value="empresa">Empresa A-Z</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Container de vagas -->
+                        <div id="vagas-container" class="vagas-grid">
+                            <!-- Vagas serão inseridas aqui via JavaScript -->
+                        </div>
+
+                        <!-- Empty state -->
+                        <div id="empty-state" class="empty-state" style="display: none;">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                            <h3>Nenhuma vaga encontrada</h3>
+                            <p>Tente ajustar seus filtros ou preferências</p>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal de candidatura -->
+    <div class="modal" id="candidatura-modal">
+        <div class="modal__overlay" id="modal-overlay"></div>
+        <div class="modal__content">
+            <div class="modal__header">
+                <h3>Candidatar-se à vaga</h3>
+                <button class="modal__close" id="modal-close">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal__body">
+                <div id="modal-vaga-info"></div>
+
+                <form id="candidatura-form" class="candidatura-form">
+                    <div class="form-group">
+                        <label for="nome">Nome completo *</label>
+                        <input type="text" id="nome" name="nome" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-mail *</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefone">Telefone *</label>
+                        <input type="tel" id="telefone" name="telefone" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="linkedin">LinkedIn</label>
+                        <input type="url" id="linkedin" name="linkedin" class="form-control" placeholder="https://linkedin.com/in/...">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensagem">Por que você é ideal para esta vaga?</label>
+                        <textarea id="mensagem" name="mensagem" class="form-control" rows="4" placeholder="Conte um pouco sobre sua experiência e motivação..."></textarea>
+                    </div>
+
+                    <div class="modal__actions">
+                        <button type="button" class="btn btn--secondary" id="cancel-btn">Cancelar</button>
+                        <button type="submit" class="btn btn--primary">Enviar candidatura</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast notification -->
+    <div class="toast" id="toast">
+        <div class="toast__content">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            <span id="toast-message"></span>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/notifications.js"></script>
+    <script src="js/vagas.js"></script>
+</body>
+</html>

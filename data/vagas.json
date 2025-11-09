@@ -1,0 +1,206 @@
+[
+  {
+    "id": 1,
+    "titulo": "Desenvolvedor Full Stack - Estágio",
+    "empresa": "Inatel Competence Center",
+    "tipo": "Estágio",
+    "localizacao": "Santa Rita do Sapucaí - MG",
+    "modalidade": "Híbrido",
+    "areas": ["Backend", "Frontend", "Web"],
+    "cursos": ["Engenharia de Computação", "Engenharia de Software"],
+    "periodoMinimo": 5,
+    "descricao": "Desenvolvimento de sistemas web modernos utilizando Node.js e React. Oportunidade de trabalhar em projetos reais e inovadores.",
+    "requisitos": [
+      "Conhecimento em JavaScript",
+      "HTML/CSS",
+      "Git",
+      "Inglês intermediário"
+    ],
+    "beneficios": [
+      "Bolsa auxílio competitiva",
+      "Vale transporte",
+      "Vale refeição",
+      "Ambiente inovador"
+    ],
+    "publicadoEm": "2025-11-08"
+  },
+  {
+    "id": 2,
+    "titulo": "Engenheiro de Telecomunicações - Júnior",
+    "empresa": "Ericsson",
+    "tipo": "CLT",
+    "localizacao": "Remoto",
+    "modalidade": "Remoto",
+    "areas": ["Telecomunicações", "5G", "Redes"],
+    "cursos": ["Engenharia de Telecomunicações", "Engenharia Elétrica"],
+    "periodoMinimo": 7,
+    "descricao": "Atuar no desenvolvimento e implantação de soluções 5G para operadoras brasileiras. Trabalho em equipe internacional.",
+    "requisitos": [
+      "Formação em Telecomunicações ou Elétrica",
+      "Conhecimento em protocolos de rede",
+      "Inglês fluente",
+      "Experiência com 4G/5G (diferencial)"
+    ],
+    "beneficios": [
+      "Salário compatível com mercado",
+      "Plano de saúde",
+      "Plano odontológico",
+      "Gympass",
+      "Home office"
+    ],
+    "publicadoEm": "2025-11-07"
+  },
+  {
+    "id": 3,
+    "titulo": "Analista de IoT - Estágio",
+    "empresa": "Padtec",
+    "tipo": "Estágio",
+    "localizacao": "Campinas - SP",
+    "modalidade": "Presencial",
+    "areas": ["IoT", "Embarcados", "Sensores"],
+    "cursos": ["Engenharia de Computação", "Engenharia de Controle e Automação", "Engenharia Elétrica"],
+    "periodoMinimo": 4,
+    "descricao": "Desenvolvimento de soluções IoT para monitoramento de infraestrutura de telecomunicações. Trabalho com sensores e microcontroladores.",
+    "requisitos": [
+      "Conhecimento em programação C/C++",
+      "Arduino/ESP32",
+      "Protocolos IoT (MQTT, CoAP)",
+      "Eletrônica básica"
+    ],
+    "beneficios": [
+      "Bolsa auxílio",
+      "Vale transporte",
+      "Vale refeição",
+      "Mentoria técnica"
+    ],
+    "publicadoEm": "2025-11-06"
+  },
+  {
+    "id": 4,
+    "titulo": "Desenvolvedor Python - Estágio",
+    "empresa": "Inatel",
+    "tipo": "Estágio",
+    "localizacao": "Santa Rita do Sapucaí - MG",
+    "modalidade": "Presencial",
+    "areas": ["Backend", "Data Science", "IA"],
+    "cursos": ["Engenharia de Software", "Engenharia de Computação"],
+    "periodoMinimo": 3,
+    "descricao": "Desenvolvimento de aplicações backend e scripts para automação de processos. Oportunidade de trabalhar com Machine Learning.",
+    "requisitos": [
+      "Python",
+      "Pandas/NumPy (diferencial)",
+      "Git",
+      "Lógica de programação"
+    ],
+    "beneficios": [
+      "Bolsa auxílio",
+      "Vale transporte",
+      "Ambiente universitário",
+      "Flexibilidade de horários"
+    ],
+    "publicadoEm": "2025-11-05"
+  },
+  {
+    "id": 5,
+    "titulo": "Engenheiro de Automação - Júnior",
+    "empresa": "Siemens",
+    "tipo": "CLT",
+    "localizacao": "São Paulo - SP",
+    "modalidade": "Híbrido",
+    "areas": ["Automação", "Controle", "Indústria 4.0"],
+    "cursos": ["Engenharia de Controle e Automação", "Engenharia Elétrica"],
+    "periodoMinimo": 8,
+    "descricao": "Desenvolvimento de sistemas de automação industrial e integração de soluções para Indústria 4.0.",
+    "requisitos": [
+      "Formação completa em Automação ou Elétrica",
+      "Conhecimento em CLPs",
+      "Redes industriais",
+      "Inglês intermediário"
+    ],
+    "beneficios": [
+      "Salário competitivo",
+      "Plano de saúde e odontológico",
+      "Vale alimentação",
+      "Participação nos lucros",
+      "Programa de treinamento"
+    ],
+    "publicadoEm": "2025-11-04"
+  },
+  {
+    "id": 6,
+    "titulo": "Analista de Segurança Cibernética - Estágio",
+    "empresa": "Inatel - Centro de Segurança Cibernética",
+    "tipo": "Estágio",
+    "localizacao": "Santa Rita do Sapucaí - MG",
+    "modalidade": "Híbrido",
+    "areas": ["Segurança", "Redes", "Pentesting"],
+    "cursos": ["Engenharia de Computação", "Engenharia de Software", "Engenharia de Telecomunicações"],
+    "periodoMinimo": 5,
+    "descricao": "Trabalhar em projetos de segurança cibernética, análise de vulnerabilidades e testes de penetração em sistemas de telecomunicações.",
+    "requisitos": [
+      "Conhecimento em redes de computadores",
+      "Linux",
+      "Conceitos de segurança da informação",
+      "Python (diferencial)"
+    ],
+    "beneficios": [
+      "Bolsa auxílio atrativa",
+      "Vale transporte e refeição",
+      "Certificações pagas pela empresa",
+      "Ambiente de pesquisa"
+    ],
+    "publicadoEm": "2025-11-03"
+  },
+  {
+    "id": 7,
+    "titulo": "Desenvolvedor Mobile - Flutter",
+    "empresa": "Stefanini",
+    "tipo": "CLT",
+    "localizacao": "Remoto",
+    "modalidade": "Remoto",
+    "areas": ["Mobile", "Frontend", "Flutter"],
+    "cursos": ["Engenharia de Software", "Engenharia de Computação"],
+    "periodoMinimo": 6,
+    "descricao": "Desenvolvimento de aplicativos mobile multiplataforma usando Flutter para grandes clientes do setor financeiro.",
+    "requisitos": [
+      "Flutter/Dart",
+      "API REST",
+      "Git",
+      "Clean Architecture (diferencial)"
+    ],
+    "beneficios": [
+      "Salário de 5k a 7k",
+      "Home office permanente",
+      "Plano de saúde",
+      "Day off de aniversário",
+      "Auxílio home office"
+    ],
+    "publicadoEm": "2025-11-02"
+  },
+  {
+    "id": 8,
+    "titulo": "Engenheiro de Dados - Júnior",
+    "empresa": "Totvs",
+    "tipo": "CLT",
+    "localizacao": "Belo Horizonte - MG",
+    "modalidade": "Híbrido",
+    "areas": ["Data Science", "Backend", "Cloud"],
+    "cursos": ["Engenharia de Software", "Engenharia de Computação"],
+    "periodoMinimo": 7,
+    "descricao": "Construção e manutenção de pipelines de dados, ETL e data warehouses para produtos cloud da Totvs.",
+    "requisitos": [
+      "SQL avançado",
+      "Python",
+      "Cloud (AWS/Azure)",
+      "Spark/Airflow (diferencial)"
+    ],
+    "beneficios": [
+      "Salário competitivo",
+      "Plano de saúde Bradesco",
+      "Vale refeição/alimentação",
+      "Universidade corporativa",
+      "Stock options"
+    ],
+    "publicadoEm": "2025-11-01"
+  }
+]
