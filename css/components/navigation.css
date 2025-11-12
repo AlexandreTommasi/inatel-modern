@@ -1,0 +1,98 @@
+/* =============== HEADER / NAVBAR =============== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: transparent;
+  backdrop-filter: blur(0px);
+  box-shadow: none;
+  z-index: 1000;
+  transition: var(--transition);
+}
+
+.header.scrolled {
+  background: rgba(0, 81, 165, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 81, 165, 0.3);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 90px;
+  padding: var(--space-md) 0;
+}
+
+.nav__logo img {
+  height: 45px;
+  width: auto;
+  transition: var(--transition);
+  filter: brightness(0) invert(1) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+}
+
+.nav__logo:hover img {
+  transform: scale(1.05);
+  filter: brightness(0) invert(1) drop-shadow(0 4px 16px rgba(0, 212, 255, 0.5));
+}
+
+.header.scrolled .nav__logo img {
+  filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.nav__list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+}
+
+.nav__link {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: white !important;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.nav__link:hover {
+  color: #00D4FF !important;
+}
+
+.header.scrolled .nav__link {
+  color: white !important;
+}
+
+.header.scrolled .nav__link:hover {
+  color: #00D4FF !important;
+}
+
+.nav__link--highlight {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: white !important;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.nav__link--highlight:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+  color: #00D4FF !important;
+}
+
+.nav__toggle,
+.nav__close {
+  display: none;
+  cursor: pointer;
+  color: white;
+}
+
+.header.scrolled .nav__toggle {
+  color: white;
+}

@@ -1,0 +1,133 @@
+/* =============== RESPONSIVE =============== */
+@media (max-width: 768px) {
+  /* Mobile menu */
+  .nav__menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    background: white;
+    box-shadow: var(--shadow-xl);
+    padding: var(--space-3xl) var(--space-xl);
+    transition: var(--transition);
+  }
+
+  .nav__menu.show-menu {
+    right: 0;
+  }
+
+  .nav__list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-lg);
+  }
+
+  .nav__toggle,
+  .nav__close {
+    display: block;
+  }
+
+  .nav__close {
+    position: absolute;
+    top: var(--space-lg);
+    right: var(--space-lg);
+  }
+
+  /* Typography */
+  .hero__title {
+    font-size: var(--font-size-3xl);
+  }
+
+  .hero__subtitle {
+    font-size: var(--font-size-lg);
+  }
+
+  .section__title {
+    font-size: var(--font-size-2xl);
+  }
+
+  /* Buttons */
+  .hero__buttons {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Grids */
+  .cards-grid,
+  .stats-grid,
+  .feature-grid,
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .community-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Dashboard */
+  .dashboard-header {
+    flex-direction: column;
+    gap: var(--space-lg);
+    text-align: center;
+  }
+
+  .dashboard-actions {
+    width: 100%;
+  }
+
+  .dashboard-actions .btn {
+    width: 100%;
+  }
+
+  .dashboard-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Schedule */
+  .schedule-table {
+    font-size: 0.7rem;
+  }
+
+  .schedule-table th,
+  .schedule-table td {
+    padding: var(--space-xs);
+  }
+
+  .schedule-class-name {
+    font-size: 0.65rem;
+  }
+
+  .schedule-class-room {
+    font-size: 0.6rem;
+  }
+
+  /* Footer */
+  .footer__bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --space-4xl: 3rem;
+  }
+
+  .hero__title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .community-grid {
+    grid-template-columns: 1fr;
+  }
+}

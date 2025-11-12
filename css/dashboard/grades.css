@@ -1,0 +1,70 @@
+/* =============== TABELA DE NOTAS =============== */
+.grades-info {
+  padding: var(--space-md);
+  background: rgba(0, 163, 224, 0.08);
+  border-left: 3px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-lg);
+}
+
+.grades-info-text {
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+  margin: 0;
+}
+
+.grades-table-wrapper {
+  overflow-x: auto;
+  border-radius: var(--radius-md);
+}
+
+.grades-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: var(--font-size-sm);
+}
+
+.grades-table thead {
+  background: linear-gradient(135deg, rgba(0, 81, 165, 0.1) 0%, rgba(0, 163, 224, 0.1) 100%);
+}
+
+.grades-table th {
+  padding: var(--space-md);
+  text-align: center;
+  font-weight: 600;
+  color: var(--color-primary);
+  border-bottom: 2px solid rgba(0, 81, 165, 0.2);
+}
+
+.grades-table th:first-child {
+  text-align: left;
+}
+
+.grades-table td {
+  padding: var(--space-md);
+  border-bottom: 1px solid rgba(0, 81, 165, 0.1);
+  text-align: center;
+  vertical-align: middle;
+}
+
+.grades-table tbody tr:hover {
+  background: rgba(0, 81, 165, 0.05);
+}
+
+.grades-subject {
+  font-weight: 600;
+  color: var(--color-text);
+  text-align: left !important;
+}
+
+.grades-score {
+  color: var(--color-text-light);
+  font-weight: 500;
+}
+
+.grades-average {
+  font-weight: 700;
+  color: var(--color-primary);
+  font-size: var(--font-size-base);
+}
