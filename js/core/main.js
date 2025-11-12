@@ -3,61 +3,106 @@
  * Handles navigation, scroll effects, and animations
  */
 
-// =============== MOBILE MENU ===============
-const navMenu = document.getElementById('nav-menu');
-const navToggle = document.getElementById('nav-toggle');
-const navClose = document.getElementById('nav-close');
+// =============== INITIALIZE NAVIGATION ===============
+function initializeNavigation() {
+  // =============== MOBILE MENU ===============
+  const navMenu = document.getElementById('nav-menu');
+  const navToggle = document.getElementById('nav-toggle');
+  const navClose = document.getElementById('nav-close');
 
-// Show menu
-if (navToggle) {
-  navToggle.addEventListener('click', () => {
-    navMenu.classList.add('show-menu');
-  });
-}
-
-// Hide menu
-if (navClose) {
-  navClose.addEventListener('click', () => {
-    navMenu.classList.remove('show-menu');
-  });
-}
-
-// Close menu when clicking on nav links
-const navLinks = document.querySelectorAll('.nav__link');
-navLinks.forEach(link => {
-  link.addEventListener('click', () => {
-    navMenu.classList.remove('show-menu');
-  });
-});
-
-// =============== HEADER SCROLL EFFECT ===============
-const header = document.getElementById('header');
-
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 100) {
-    header.classList.add('scrolled');
-  } else {
-    header.classList.remove('scrolled');
+  // Show menu
+  if (navToggle && navMenu) {
+    navToggle.addEventListener('click', () => {
+      navMenu.classList.add('show-menu');
+    });
   }
-});
 
-// =============== SMOOTH SCROLL ===============
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
+  // Hide menu
+  if (navClose && navMenu) {
+    navClose.addEventListener('click', () => {
+      navMenu.classList.remove('show-menu');
+    });
+  }
 
-    if (target) {
-      const headerOffset = 90;
-      const elementPosition = target.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
+  // Close menu when clicking on nav links
+  if (navMenu) {
+    const navLinks = document.querySelectorAll('.nav__link');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('show-menu');
       });
-    }
+    });
+  }
+
+  // =============== HEADER SCROLL EFFECT ===============
+  const header = document.getElementById('header');
+
+  if (header) {
+    let isScrolled = false;
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY || window.pageYOffset;
+      const shouldBeScrolled = scrollY > 100;
+
+      // Only update when state changes
+      if (shouldBeScrolled && !isScrolled) {
+        header.classList.add('scrolled');
+
+        // Force inline styles as fallback
+        header.style.background = 'rgba(0, 81, 165, 0.98)';
+        header.style.backdropFilter = 'blur(15px)';
+        header.style.webkitBackdropFilter = 'blur(15px)';
+        header.style.boxShadow = '0 4px 20px rgba(0, 81, 165, 0.5)';
+        header.style.borderBottom = '1px solid rgba(255, 255, 255, 0.2)';
+
+        isScrolled = true;
+
+      } else if (!shouldBeScrolled && isScrolled) {
+        header.classList.remove('scrolled');
+
+        // Remove inline styles to return to transparent
+        header.style.background = '';
+        header.style.backdropFilter = '';
+        header.style.webkitBackdropFilter = '';
+        header.style.boxShadow = '';
+        header.style.borderBottom = '';
+
+        isScrolled = false;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    // Verificar imediatamente
+    handleScroll();
+  }
+}
+
+// =============== INITIALIZE SMOOTH SCROLL ===============
+function initializeSmoothScroll() {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+
+      if (target) {
+        const headerOffset = 90;
+        const elementPosition = target.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
   });
+}
+
+// Esperar componentes serem carregados antes de inicializar
+window.addEventListener('componentsLoaded', () => {
+  initializeNavigation();
+  initializeSmoothScroll();
+  initializeActiveSection();
 });
 
 // =============== SCROLL REVEAL ANIMATION ===============
@@ -84,29 +129,31 @@ animatedElements.forEach(el => {
   observer.observe(el);
 });
 
-// =============== ACTIVE SECTION HIGHLIGHT ===============
-const sections = document.querySelectorAll('section[id]');
+// =============== INITIALIZE ACTIVE SECTION HIGHLIGHT ===============
+function initializeActiveSection() {
+  const sections = document.querySelectorAll('section[id]');
 
-function highlightNavigation() {
-  const scrollY = window.pageYOffset;
+  function highlightNavigation() {
+    const scrollY = window.pageYOffset;
 
-  sections.forEach(current => {
-    const sectionHeight = current.offsetHeight;
-    const sectionTop = current.offsetTop - 150;
-    const sectionId = current.getAttribute('id');
-    const navLink = document.querySelector(`.nav__link[href*="${sectionId}"]`);
+    sections.forEach(current => {
+      const sectionHeight = current.offsetHeight;
+      const sectionTop = current.offsetTop - 150;
+      const sectionId = current.getAttribute('id');
+      const navLink = document.querySelector(`.nav__link[href*="${sectionId}"]`);
 
-    if (navLink) {
-      if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-        navLink.style.color = 'var(--color-primary)';
-      } else {
-        navLink.style.color = 'var(--color-text)';
+      if (navLink) {
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+          navLink.style.color = 'var(--color-primary)';
+        } else {
+          navLink.style.color = 'var(--color-text)';
+        }
       }
-    }
-  });
-}
+    });
+  }
 
-window.addEventListener('scroll', highlightNavigation);
+  window.addEventListener('scroll', highlightNavigation);
+}
 
 // =============== PARTICLES ANIMATION ===============
 function createParticles() {

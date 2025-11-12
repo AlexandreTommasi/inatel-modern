@@ -4,17 +4,23 @@
   top: 0;
   left: 0;
   width: 100%;
-  background: transparent;
+  background: rgba(0, 0, 0, 0);
   backdrop-filter: blur(0px);
   box-shadow: none;
-  z-index: 1000;
+  z-index: 9999;
   transition: var(--transition);
+  border-bottom: 1px solid rgba(255, 255, 255, 0);
 }
 
+header.header.scrolled,
 .header.scrolled {
-  background: rgba(0, 81, 165, 0.95);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 12px rgba(0, 81, 165, 0.3);
+  background: rgba(0, 81, 165, 0.98) !important;
+  backdrop-filter: blur(15px) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
+  box-shadow: 0 4px 20px rgba(0, 81, 165, 0.5) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 .nav {
