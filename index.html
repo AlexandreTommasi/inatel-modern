@@ -19,15 +19,15 @@
 
     <!-- Components -->
     <link rel="stylesheet" href="css/components/buttons.css">
-    <link rel="stylesheet" href="css/components/navigation.css">
+    <link rel="stylesheet" href="css/components/navigation.css?v=6">
     <link rel="stylesheet" href="css/components/hero.css">
     <link rel="stylesheet" href="css/components/sections.css">
     <link rel="stylesheet" href="css/components/cards.css">
     <link rel="stylesheet" href="css/components/footer.css">
 
     <!-- Dashboard -->
-    <link rel="stylesheet" href="css/dashboard/dashboard.css">
-    <link rel="stylesheet" href="css/dashboard/grades.css">
+    <link rel="stylesheet" href="css/dashboard/dashboard.css?v=6">
+    <link rel="stylesheet" href="css/dashboard/grades.css?v=6">
     <link rel="stylesheet" href="css/dashboard/schedule.css">
 
     <!-- Responsive -->
@@ -87,77 +87,60 @@
     <!-- Dashboard Acadêmico -->
     <section class="section" id="dashboard">
         <div class="container">
-            <!-- Header com boas-vindas -->
-            <div class="dashboard-header">
-                <div>
-                    <h2 class="dashboard-title">Olá, Alexandre!</h2>
-                    <p class="dashboard-subtitle">Bem-vindo ao seu portal acadêmico - 8º Período</p>
-                </div>
-                <div class="dashboard-actions">
-                    <a href="vagas.html" class="btn btn--primary">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                        </svg>
-                        Ver Vagas
-                    </a>
-                </div>
-            </div>
-
-            <!-- Stats Cards -->
-            <div class="dashboard-stats">
-                <div class="stat-card stat-card--primary">
-                    <div class="stat-card__icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-                        </svg>
+            <!-- Dashboard Header + Progresso do Semestre -->
+            <div class="semester-progress">
+                <!-- Header com boas-vindas -->
+                <div class="dashboard-welcome">
+                    <div>
+                        <h2 class="dashboard-title">Olá, Alexandre!</h2>
+                        <p class="dashboard-subtitle">Bem-vindo ao seu portal acadêmico - 8º Período</p>
                     </div>
-                    <div class="stat-card__content">
-                        <div class="stat-card__number">7</div>
-                        <div class="stat-card__label">Matérias Ativas</div>
+                    <div class="dashboard-actions">
+                        <a href="vagas.html" class="btn btn--primary">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                            </svg>
+                            Ver Vagas
+                        </a>
                     </div>
                 </div>
 
-                <div class="stat-card stat-card--warning">
-                    <div class="stat-card__icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <!-- Divider -->
+                <div class="semester-progress__divider"></div>
+
+                <!-- Progresso -->
+                <div class="semester-progress__header">
+                    <div class="semester-progress__info">
+                        <h4 class="semester-progress__title">Progresso do Semestre</h4>
+                        <p class="semester-progress__subtitle">2025.2 - Engenharia de Computação</p>
+                    </div>
+                    <div class="semester-progress__stats">
+                        <span class="semester-progress__week">Semana 14 de 18</span>
+                    </div>
+                </div>
+                <div class="semester-progress__bar-container">
+                    <div class="semester-progress__bar" style="width: 77.8%"></div>
+                </div>
+                <div class="semester-progress__footer">
+                    <span class="semester-progress__date">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                             <line x1="16" y1="2" x2="16" y2="6"></line>
                             <line x1="8" y1="2" x2="8" y2="6"></line>
                             <line x1="3" y1="10" x2="21" y2="10"></line>
                         </svg>
-                    </div>
-                    <div class="stat-card__content">
-                        <div class="stat-card__number">6</div>
-                        <div class="stat-card__label">Provas Esta Semana</div>
-                    </div>
-                </div>
-
-                <div class="stat-card stat-card--success">
-                    <div class="stat-card__icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9 11l3 3L22 4"></path>
-                            <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"></path>
+                        Início: 05/08/2025
+                    </span>
+                    <span class="semester-progress__date">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
                         </svg>
-                    </div>
-                    <div class="stat-card__content">
-                        <div class="stat-card__number">-</div>
-                        <div class="stat-card__label">Média Geral</div>
-                    </div>
-                </div>
-
-                <div class="stat-card stat-card--info">
-                    <div class="stat-card__icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                        </svg>
-                    </div>
-                    <div class="stat-card__content">
-                        <div class="stat-card__number">8</div>
-                        <div class="stat-card__label">Vagas Compatíveis</div>
-                    </div>
+                        Término: 10/12/2025
+                    </span>
                 </div>
             </div>
 
@@ -182,49 +165,49 @@
                                     <div class="subject-name">Engenharia de Produto de Software</div>
                                     <div class="subject-meta">S204 A</div>
                                 </div>
-                                <div class="subject-grade">-</div>
+                                <div class="subject-grade"></div>
                             </div>
                             <div class="subject-item">
                                 <div class="subject-info">
                                     <div class="subject-name">Engenharia de Software</div>
                                     <div class="subject-meta">C14 A</div>
                                 </div>
-                                <div class="subject-grade">-</div>
+                                <div class="subject-grade"></div>
                             </div>
                             <div class="subject-item">
                                 <div class="subject-info">
                                     <div class="subject-name">Interação Homem Máquina</div>
                                     <div class="subject-meta">S05 A</div>
                                 </div>
-                                <div class="subject-grade">-</div>
+                                <div class="subject-grade"></div>
                             </div>
                             <div class="subject-item">
                                 <div class="subject-info">
                                     <div class="subject-name">Otimização II</div>
                                     <div class="subject-meta">P108 L1</div>
                                 </div>
-                                <div class="subject-grade">-</div>
+                                <div class="subject-grade"></div>
                             </div>
                             <div class="subject-item">
                                 <div class="subject-info">
                                     <div class="subject-name">Gerência de Configuração e Evolware</div>
                                     <div class="subject-meta">S107 L1</div>
                                 </div>
-                                <div class="subject-grade">-</div>
+                                <div class="subject-grade"></div>
                             </div>
                             <div class="subject-item">
                                 <div class="subject-info">
                                     <div class="subject-name">Gerência, QoS e Segurança em Redes</div>
                                     <div class="subject-meta">T106 L1</div>
                                 </div>
-                                <div class="subject-grade">-</div>
+                                <div class="subject-grade"></div>
                             </div>
                             <div class="subject-item">
                                 <div class="subject-info">
                                     <div class="subject-name">Atividades Complementares</div>
                                     <div class="subject-meta">AC8 N</div>
                                 </div>
-                                <div class="subject-grade">-</div>
+                                <div class="subject-grade"></div>
                             </div>
                         </div>
                     </div>
@@ -244,73 +227,55 @@
                         </h3>
                     </div>
                     <div class="dashboard-card__content">
-                        <div class="exam-list">
-                            <div class="exam-item exam-item--urgent">
-                                <div class="exam-date">
-                                    <div class="exam-day">13</div>
-                                    <div class="exam-month">NOV</div>
+                        <div class="subject-list">
+                            <div class="subject-item">
+                                <div class="subject-info">
+                                    <div class="subject-name">Engenharia de Software</div>
+                                    <div class="subject-meta">NP2 - 13/11 - Sala I-5 - 19h30</div>
                                 </div>
-                                <div class="exam-info">
-                                    <div class="exam-subject">Engenharia de Software (C14 A)</div>
-                                    <div class="exam-meta">NP2 - Sala I-5 - 19h30</div>
-                                </div>
+                                <div class="subject-grade">C14 A</div>
                             </div>
-                            <div class="exam-item exam-item--soon">
-                                <div class="exam-date">
-                                    <div class="exam-day">14</div>
-                                    <div class="exam-month">NOV</div>
+                            <div class="subject-item">
+                                <div class="subject-info">
+                                    <div class="subject-name">Eng. Produto de Software</div>
+                                    <div class="subject-meta">NP2 - 14/11 - Sala I-17 - 19h30</div>
                                 </div>
-                                <div class="exam-info">
-                                    <div class="exam-subject">Eng. Produto de Software (S204 A)</div>
-                                    <div class="exam-meta">NP2 - Sala I-17 - 19h30</div>
-                                </div>
+                                <div class="subject-grade">S204 A</div>
                             </div>
-                            <div class="exam-item exam-item--soon">
-                                <div class="exam-date">
-                                    <div class="exam-day">15</div>
-                                    <div class="exam-month">NOV</div>
+                            <div class="subject-item">
+                                <div class="subject-info">
+                                    <div class="subject-name">Ger. Config. e Evolware</div>
+                                    <div class="subject-meta">NP2 - 15/11 - Sala I-17 - 19h30</div>
                                 </div>
-                                <div class="exam-info">
-                                    <div class="exam-subject">Ger. Config. e Evolware (S107 L1)</div>
-                                    <div class="exam-meta">NP2 - Sala I-17 - 19h30</div>
-                                </div>
+                                <div class="subject-grade">S107 L1</div>
                             </div>
-                            <div class="exam-item">
-                                <div class="exam-date">
-                                    <div class="exam-day">17</div>
-                                    <div class="exam-month">NOV</div>
+                            <div class="subject-item">
+                                <div class="subject-info">
+                                    <div class="subject-name">Interação Homem Máquina</div>
+                                    <div class="subject-meta">NP2 - 17/11 - Sala I-5 - 17h30</div>
                                 </div>
-                                <div class="exam-info">
-                                    <div class="exam-subject">Interação Homem Máquina (S05 A)</div>
-                                    <div class="exam-meta">NP2 - Sala I-5 - 17h30</div>
-                                </div>
+                                <div class="subject-grade">S05 A</div>
                             </div>
-                            <div class="exam-item">
-                                <div class="exam-date">
-                                    <div class="exam-day">19</div>
-                                    <div class="exam-month">NOV</div>
+                            <div class="subject-item">
+                                <div class="subject-info">
+                                    <div class="subject-name">Otimização II</div>
+                                    <div class="subject-meta">NP2 - 19/11 - Sala I-15 - 13h30</div>
                                 </div>
-                                <div class="exam-info">
-                                    <div class="exam-subject">Otimização II (P108 L1)</div>
-                                    <div class="exam-meta">NP2 - Sala I-15 - 13h30</div>
-                                </div>
+                                <div class="subject-grade">P108 L1</div>
                             </div>
-                            <div class="exam-item">
-                                <div class="exam-date">
-                                    <div class="exam-day">20</div>
-                                    <div class="exam-month">NOV</div>
+                            <div class="subject-item">
+                                <div class="subject-info">
+                                    <div class="subject-name">Ger., QoS e Seg. em Redes</div>
+                                    <div class="subject-meta">NP2 - 20/11 - Sala I-17 - 08h40</div>
                                 </div>
-                                <div class="exam-info">
-                                    <div class="exam-subject">Ger., QoS e Seg. em Redes (T106 L1)</div>
-                                    <div class="exam-meta">NP2 - Sala I-17 - 08h40</div>
-                                </div>
+                                <div class="subject-grade">T106 L1</div>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Notas -->
-                <div class="dashboard-card">
+                <div class="dashboard-card" id="notas">
                     <div class="dashboard-card__header">
                         <h3 class="dashboard-card__title">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -321,11 +286,6 @@
                         </h3>
                     </div>
                     <div class="dashboard-card__content">
-                        <div class="grades-info">
-                            <p class="grades-info-text">
-                                <strong>NP3</strong> só é necessária se a média de <strong>NP1 + NP2 &lt; 60 pontos</strong>
-                            </p>
-                        </div>
                         <div class="grades-table-wrapper">
                             <table class="grades-table">
                                 <thead>
@@ -340,42 +300,42 @@
                                 <tbody>
                                     <tr>
                                         <td class="grades-subject">S204 A</td>
-                                        <td class="grades-score">-</td>
+                                        <td class="grades-score">85</td>
                                         <td class="grades-score">-</td>
                                         <td class="grades-score">-</td>
                                         <td class="grades-average">-</td>
                                     </tr>
                                     <tr>
                                         <td class="grades-subject">C14 A</td>
-                                        <td class="grades-score">-</td>
+                                        <td class="grades-score">92</td>
                                         <td class="grades-score">-</td>
                                         <td class="grades-score">-</td>
                                         <td class="grades-average">-</td>
                                     </tr>
                                     <tr>
                                         <td class="grades-subject">S05 A</td>
-                                        <td class="grades-score">-</td>
+                                        <td class="grades-score">78</td>
                                         <td class="grades-score">-</td>
                                         <td class="grades-score">-</td>
                                         <td class="grades-average">-</td>
                                     </tr>
                                     <tr>
                                         <td class="grades-subject">P108 L1</td>
-                                        <td class="grades-score">-</td>
+                                        <td class="grades-score">88</td>
                                         <td class="grades-score">-</td>
                                         <td class="grades-score">-</td>
                                         <td class="grades-average">-</td>
                                     </tr>
                                     <tr>
                                         <td class="grades-subject">S107 L1</td>
-                                        <td class="grades-score">-</td>
+                                        <td class="grades-score">95</td>
                                         <td class="grades-score">-</td>
                                         <td class="grades-score">-</td>
                                         <td class="grades-average">-</td>
                                     </tr>
                                     <tr>
                                         <td class="grades-subject">T106 L1</td>
-                                        <td class="grades-score">-</td>
+                                        <td class="grades-score">82</td>
                                         <td class="grades-score">-</td>
                                         <td class="grades-score">-</td>
                                         <td class="grades-average">-</td>
@@ -588,12 +548,12 @@
 
     <!-- JavaScript -->
     <!-- Components Loader (deve carregar primeiro) -->
-    <script src="js/core/components-loader.js?v=2"></script>
+    <script src="js/core/components-loader.js?v=5"></script>
 
     <!-- Core -->
-    <script src="js/core/main.js?v=2"></script>
+    <script src="js/core/main.js?v=5"></script>
 
     <!-- Effects -->
-    <script src="js/effects/space-effects.js?v=2"></script>
+    <script src="js/effects/space-effects.js?v=4"></script>
 </body>
 </html>

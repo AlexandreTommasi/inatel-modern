@@ -14,15 +14,16 @@
 }
 
 .grades-table-wrapper {
-  overflow-x: auto;
   border-radius: var(--radius-md);
+  overflow: hidden;
 }
 
 .grades-table {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
-  font-size: var(--font-size-sm);
+  font-size: 0.875rem;
+  table-layout: fixed;
 }
 
 .grades-table thead {
@@ -30,22 +31,37 @@
 }
 
 .grades-table th {
-  padding: var(--space-md);
-  text-align: center;
+  padding: 10px 12px;
+  text-align: left;
   font-weight: 600;
   color: var(--color-primary);
   border-bottom: 2px solid rgba(0, 81, 165, 0.2);
+  font-size: 0.8125rem;
+  white-space: nowrap;
 }
 
 .grades-table th:first-child {
-  text-align: left;
+  width: 32%;
+  padding-left: 16px;
+}
+
+.grades-table th:nth-child(2),
+.grades-table th:nth-child(3),
+.grades-table th:nth-child(4),
+.grades-table th:nth-child(5) {
+  width: 17%;
 }
 
 .grades-table td {
-  padding: var(--space-md);
+  padding: 10px 12px;
   border-bottom: 1px solid rgba(0, 81, 165, 0.1);
-  text-align: center;
+  text-align: left;
   vertical-align: middle;
+  font-size: 0.875rem;
+}
+
+.grades-table td:first-child {
+  padding-left: 16px;
 }
 
 .grades-table tbody tr:hover {
@@ -55,16 +71,19 @@
 .grades-subject {
   font-weight: 600;
   color: var(--color-text);
-  text-align: left !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .grades-score {
   color: var(--color-text-light);
   font-weight: 500;
+  font-size: 0.875rem;
 }
 
 .grades-average {
   font-weight: 700;
   color: var(--color-primary);
-  font-size: var(--font-size-base);
+  font-size: 0.875rem;
 }

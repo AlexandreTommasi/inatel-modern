@@ -75,6 +75,65 @@ function initializeNavigation() {
     // Verificar imediatamente
     handleScroll();
   }
+
+  // =============== NOTIFICATIONS DROPDOWN ===============
+  const notificationsButton = document.getElementById('notifications-button');
+  const notificationsDropdown = document.getElementById('notifications-dropdown');
+
+  if (notificationsButton && notificationsDropdown) {
+    notificationsButton.addEventListener('click', (e) => {
+      e.stopPropagation();
+      notificationsDropdown.classList.toggle('show');
+      // Fechar profile se estiver aberto
+      const profileDropdown = document.getElementById('profile-dropdown');
+      if (profileDropdown) {
+        profileDropdown.classList.remove('show');
+      }
+    });
+
+    // Fechar ao clicar fora
+    document.addEventListener('click', (e) => {
+      if (!notificationsDropdown.contains(e.target) && !notificationsButton.contains(e.target)) {
+        notificationsDropdown.classList.remove('show');
+      }
+    });
+
+    // Fechar ao pressionar ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        notificationsDropdown.classList.remove('show');
+      }
+    });
+  }
+
+  // =============== PROFILE DROPDOWN ===============
+  const profileButton = document.getElementById('profile-button');
+  const profileDropdown = document.getElementById('profile-dropdown');
+
+  if (profileButton && profileDropdown) {
+    profileButton.addEventListener('click', (e) => {
+      e.stopPropagation();
+      profileDropdown.classList.toggle('show');
+      // Fechar notifications se estiver aberto
+      if (notificationsDropdown) {
+        notificationsDropdown.classList.remove('show');
+      }
+    });
+
+    // Fechar ao clicar fora
+    document.addEventListener('click', (e) => {
+      if (!profileDropdown.contains(e.target) && !profileButton.contains(e.target)) {
+        profileDropdown.classList.remove('show');
+      }
+    });
+
+    // Fechar ao pressionar ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        profileDropdown.classList.remove('show');
+      }
+    });
+  }
 }
 
 // =============== INITIALIZE SMOOTH SCROLL ===============
