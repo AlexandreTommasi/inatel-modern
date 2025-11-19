@@ -67,7 +67,7 @@ if (profileSetupForm) {
 
     // Validation
     if (!curso || !periodo) {
-      showToast('Por favor, preencha todos os campos obrigatórios!');
+      alert('Por favor, preencha todos os campos obrigatórios!');
       return;
     }
 
@@ -78,7 +78,7 @@ if (profileSetupForm) {
     });
 
     if (selectedAreas.length < 2) {
-      showToast('Selecione pelo menos 2 áreas de interesse!');
+      alert('Selecione pelo menos 2 áreas de interesse!');
       return;
     }
 
@@ -89,7 +89,7 @@ if (profileSetupForm) {
     });
 
     if (selectedTipos.length === 0) {
-      showToast('Selecione pelo menos um tipo de vaga!');
+      alert('Selecione pelo menos um tipo de vaga!');
       return;
     }
 
@@ -100,7 +100,7 @@ if (profileSetupForm) {
     });
 
     if (selectedModalidades.length === 0) {
-      showToast('Selecione pelo menos uma modalidade!');
+      alert('Selecione pelo menos uma modalidade!');
       return;
     }
 
@@ -128,9 +128,6 @@ if (profileSetupForm) {
     if (vagas.length > 0) {
       renderVagas();
     }
-
-    // Show success toast
-    showToast('Perfil configurado com sucesso! Carregando vagas...');
   });
 }
 
@@ -141,7 +138,6 @@ function saveProfile() {
 
 // =============== PROFILE FORM ===============
 const profileForm = document.getElementById('profile-form');
-const profileStatus = document.getElementById('profile-status');
 
 function populateProfileForm() {
   document.getElementById('curso').value = userProfile.curso || '';
@@ -156,14 +152,6 @@ function populateProfileForm() {
 
 function updateProfileStatus() {
   const isConfigured = userProfile.curso && userProfile.periodo && userProfile.areas.length > 0;
-
-  if (isConfigured) {
-    profileStatus.textContent = 'Configurado';
-    profileStatus.classList.add('active');
-  } else {
-    profileStatus.textContent = 'Não configurado';
-    profileStatus.classList.remove('active');
-  }
 
   // Update UI states
   updateUIStates(isConfigured);
@@ -201,9 +189,6 @@ profileForm.addEventListener('submit', (e) => {
   saveProfile();
   updateProfileStatus();
   renderVagas();
-
-  // Show toast
-  showToast('Preferências salvas com sucesso!');
 });
 
 // =============== MATCH ALGORITHM ===============
@@ -279,7 +264,7 @@ async function loadVagas() {
     renderVagas();
   } catch (error) {
     console.error('Erro ao carregar vagas:', error);
-    showToast('Erro ao carregar vagas. Tente novamente.');
+    alert('Erro ao carregar vagas. Tente novamente.');
   }
 }
 
@@ -410,7 +395,10 @@ function createVagaCard(vaga) {
         <div class="match-circle ${vaga.matchLevel}">
           ${vaga.matchPercentual}%
         </div>
-        <div class="match-label">Match</div>
+        <div class="match-label-container">
+          <div class="match-label">Match</div>
+          <button class="match-info-btn" onclick="openMatchInfoModal()" title="Como funciona o Match?">?</button>
+        </div>
       </div>
     </div>
 
@@ -539,6 +527,27 @@ modalOverlay.addEventListener('click', closeCandidaturaModal);
 // Make function global
 window.openCandidaturaModal = openCandidaturaModal;
 
+// =============== MATCH INFO MODAL ===============
+const matchInfoModal = document.getElementById('match-info-modal');
+const matchModalOverlay = document.getElementById('match-modal-overlay');
+const matchModalClose = document.getElementById('match-modal-close');
+
+function openMatchInfoModal() {
+  matchInfoModal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeMatchInfoModal() {
+  matchInfoModal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+matchModalClose.addEventListener('click', closeMatchInfoModal);
+matchModalOverlay.addEventListener('click', closeMatchInfoModal);
+
+// Make function global
+window.openMatchInfoModal = openMatchInfoModal;
+
 // =============== CANDIDATURA FORM ===============
 candidaturaForm.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -562,61 +571,13 @@ candidaturaForm.addEventListener('submit', (e) => {
   closeCandidaturaModal();
 
   // Show success message
-  showToast('Candidatura enviada com sucesso!');
+  alert('Candidatura enviada com sucesso!');
 
   console.log('Candidatura enviada:', formData);
 });
-
-// =============== TOAST ===============
-const toast = document.getElementById('toast');
-const toastMessage = document.getElementById('toast-message');
-
-function showToast(message) {
-  toastMessage.textContent = message;
-  toast.classList.add('show');
-
-  setTimeout(() => {
-    toast.classList.remove('show');
-  }, 3000);
-}
-
-// =============== PARTICLES ANIMATION ===============
-function createParticles(containerId, particleCount = 50) {
-  const container = document.getElementById(containerId);
-  if (!container) return;
-
-  for (let i = 0; i < particleCount; i++) {
-    const particle = document.createElement('div');
-    particle.className = 'particle';
-
-    // Random horizontal position
-    particle.style.left = Math.random() * 100 + '%';
-
-    // Random animation duration (10s to 30s)
-    const duration = 10 + Math.random() * 20;
-    particle.style.animationDuration = duration + 's';
-
-    // Random delay
-    particle.style.animationDelay = Math.random() * 5 + 's';
-
-    // Random size
-    const size = 2 + Math.random() * 4;
-    particle.style.width = size + 'px';
-    particle.style.height = size + 'px';
-
-    // Random opacity
-    particle.style.opacity = 0.3 + Math.random() * 0.5;
-
-    container.appendChild(particle);
-  }
-}
 
 // =============== INITIALIZE ===============
 document.addEventListener('DOMContentLoaded', () => {
   loadProfile();
   loadVagas();
-
-  // Initialize particles
-  createParticles('particles-modal', 50);
-  createParticles('particles-hero', 40);
 });

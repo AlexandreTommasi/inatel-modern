@@ -238,30 +238,19 @@
                 Encontre a <span class="gradient-text">vaga perfeita</span> para você!
             </h1>
             <p class="vagas-hero__subtitle">
-                Oportunidades personalizadas de estágio e emprego para estudantes do Inatel
+                Encontre <strong>oportunidades personalizadas</strong> de estágio e emprego para estudantes do Inatel
             </p>
-
-            <!-- Notification Toggle -->
-            <div class="notification-banner" id="notification-banner">
-                <div class="notification-banner__content">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
-                        <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
-                    </svg>
-                    <div>
-                        <strong>Ative as notificações!</strong>
-                        <p>Receba alertas quando surgirem vagas compatíveis com seu perfil</p>
-                    </div>
-                </div>
-                <button class="btn btn--primary btn--sm" id="enable-notifications">
-                    Ativar notificações
-                </button>
-            </div>
         </div>
     </section>
 
     <!-- Preferências e Filtros -->
     <section class="vagas-section">
+        <!-- Particles Background -->
+        <div class="hero__particles" id="particles-vagas"></div>
+
+        <!-- Animated Grid -->
+        <div class="hero__grid"></div>
+
         <div class="container">
             <div class="vagas-layout">
                 <!-- Sidebar com filtros -->
@@ -276,7 +265,6 @@
                                 </svg>
                                 Meu Perfil
                             </h3>
-                            <span class="match-badge" id="profile-status">Não configurado</span>
                         </div>
 
                         <form id="profile-form" class="profile-form">
@@ -520,6 +508,92 @@
     </div>
     <!-- End Vagas Content -->
 
+    <!-- Modal de explicação do Match -->
+    <div class="modal" id="match-info-modal">
+        <div class="modal__overlay" id="match-modal-overlay"></div>
+        <div class="modal__content">
+            <div class="modal__header">
+                <h3>Como funciona o Match?</h3>
+                <button class="modal__close" id="match-modal-close">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal__body">
+                <p style="margin-bottom: var(--space-xl); color: var(--color-text-light);">
+                    O percentual de match indica o quão compatível você é com a vaga, baseado em 3 critérios principais:
+                </p>
+
+                <div class="match-criteria">
+                    <div class="match-criteria-item">
+                        <div class="match-criteria-header">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                            </svg>
+                            <h4>Compatibilidade do Curso (40 pontos)</h4>
+                        </div>
+                        <ul>
+                            <li><strong>40 pontos:</strong> Seu curso está na lista de cursos aceitos pela vaga</li>
+                            <li><strong>20 pontos:</strong> Curso relacionado (ex: Eng. Computação ↔ Eng. Software)</li>
+                            <li><strong>0 pontos:</strong> Curso não relacionado</li>
+                        </ul>
+                    </div>
+
+                    <div class="match-criteria-item">
+                        <div class="match-criteria-header">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                            <h4>Período Mínimo (20 pontos)</h4>
+                        </div>
+                        <ul>
+                            <li><strong>20 pontos:</strong> Você está no período mínimo exigido ou além</li>
+                            <li><strong>10 pontos:</strong> Está 1 período abaixo do mínimo</li>
+                            <li><strong>0 pontos:</strong> Está 2+ períodos abaixo</li>
+                        </ul>
+                    </div>
+
+                    <div class="match-criteria-item">
+                        <div class="match-criteria-header">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                                <polyline points="2 17 12 22 22 17"></polyline>
+                                <polyline points="2 12 12 17 22 12"></polyline>
+                            </svg>
+                            <h4>Áreas de Interesse (40 pontos)</h4>
+                        </div>
+                        <ul>
+                            <li>Pontuação proporcional baseada em quantas áreas coincidem</li>
+                            <li><strong>Exemplo:</strong> Vaga tem 3 áreas (Backend, Cloud, DevOps) e você marcou 2 delas = (2/3) × 40 = 26,67 pontos</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="match-legend">
+                    <h4>Interpretação do Match:</h4>
+                    <div class="match-legend-items">
+                        <div class="match-legend-item">
+                            <div class="match-circle-small high">85%</div>
+                            <span><strong>Match Alto (70%+):</strong> Você é muito compatível com essa vaga!</span>
+                        </div>
+                        <div class="match-legend-item">
+                            <div class="match-circle-small medium">55%</div>
+                            <span><strong>Match Médio (40-69%):</strong> Boa compatibilidade, vale a pena considerar</span>
+                        </div>
+                        <div class="match-legend-item">
+                            <div class="match-circle-small low">25%</div>
+                            <span><strong>Match Baixo (&lt;40%):</strong> Compatibilidade limitada</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Modal de candidatura -->
     <div class="modal" id="candidatura-modal">
         <div class="modal__overlay" id="modal-overlay"></div>
@@ -571,26 +645,12 @@
         </div>
     </div>
 
-    <!-- Toast notification -->
-    <div class="toast" id="toast">
-        <div class="toast__content">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                <polyline points="22 4 12 14.01 9 11.01"></polyline>
-            </svg>
-            <span id="toast-message"></span>
-        </div>
-    </div>
-
     <!-- JavaScript -->
     <!-- Components Loader (deve carregar primeiro) -->
     <script src="js/core/components-loader.js?v=5"></script>
 
     <!-- Core -->
     <script src="js/core/main.js?v=5"></script>
-
-    <!-- Features -->
-    <script src="js/features/notifications.js?v=4"></script>
 
     <!-- Page Specific -->
     <script src="js/pages/vagas.js?v=6"></script>
