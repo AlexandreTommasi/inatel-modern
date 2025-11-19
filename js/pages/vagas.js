@@ -19,6 +19,119 @@ function loadProfile() {
     populateProfileForm();
     updateProfileStatus();
   }
+
+  // Sempre mostrar o modal ao carregar a página
+  showProfileSetupModal();
+  hideVagasContent();
+}
+
+// =============== PROFILE SETUP MODAL ===============
+const profileSetupModal = document.getElementById('profile-setup-modal');
+const profileSetupForm = document.getElementById('profile-setup-form');
+const vagasContent = document.getElementById('vagas-content');
+
+function showProfileSetupModal() {
+  if (profileSetupModal) {
+    profileSetupModal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function hideProfileSetupModal() {
+  if (profileSetupModal) {
+    profileSetupModal.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+}
+
+function showVagasContent() {
+  if (vagasContent) {
+    vagasContent.style.display = 'block';
+  }
+}
+
+function hideVagasContent() {
+  if (vagasContent) {
+    vagasContent.style.display = 'none';
+  }
+}
+
+// Handle profile setup form submission
+if (profileSetupForm) {
+  profileSetupForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // Get form data
+    const curso = document.getElementById('setup-curso').value;
+    const periodo = parseInt(document.getElementById('setup-periodo').value) || 0;
+
+    // Validation
+    if (!curso || !periodo) {
+      showToast('Por favor, preencha todos os campos obrigatórios!');
+      return;
+    }
+
+    // Get selected areas
+    const selectedAreas = [];
+    document.querySelectorAll('#setup-areas-interesse input[name="areas"]:checked').forEach(checkbox => {
+      selectedAreas.push(checkbox.value);
+    });
+
+    if (selectedAreas.length < 2) {
+      showToast('Selecione pelo menos 2 áreas de interesse!');
+      return;
+    }
+
+    // Get selected tipos
+    const selectedTipos = [];
+    document.querySelectorAll('#profile-setup-form input[name="tipo"]:checked').forEach(checkbox => {
+      selectedTipos.push(checkbox.value);
+    });
+
+    if (selectedTipos.length === 0) {
+      showToast('Selecione pelo menos um tipo de vaga!');
+      return;
+    }
+
+    // Get selected modalidades
+    const selectedModalidades = [];
+    document.querySelectorAll('#profile-setup-form input[name="modalidade"]:checked').forEach(checkbox => {
+      selectedModalidades.push(checkbox.value);
+    });
+
+    if (selectedModalidades.length === 0) {
+      showToast('Selecione pelo menos uma modalidade!');
+      return;
+    }
+
+    // Save to userProfile
+    userProfile = {
+      curso,
+      periodo,
+      areas: selectedAreas,
+      tipos: selectedTipos,
+      modalidades: selectedModalidades
+    };
+
+    // Save to localStorage
+    saveProfile();
+
+    // Update sidebar form
+    populateProfileForm();
+    updateProfileStatus();
+
+    // Hide modal and show vagas content
+    hideProfileSetupModal();
+    showVagasContent();
+
+    // Load vagas
+    if (vagas.length > 0) {
+      renderVagas();
+    }
+
+    // Show success toast
+    showToast('Perfil configurado com sucesso! Carregando vagas...');
+  });
 }
 
 // Save profile to localStorage
@@ -467,8 +580,43 @@ function showToast(message) {
   }, 3000);
 }
 
+// =============== PARTICLES ANIMATION ===============
+function createParticles(containerId, particleCount = 50) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  for (let i = 0; i < particleCount; i++) {
+    const particle = document.createElement('div');
+    particle.className = 'particle';
+
+    // Random horizontal position
+    particle.style.left = Math.random() * 100 + '%';
+
+    // Random animation duration (10s to 30s)
+    const duration = 10 + Math.random() * 20;
+    particle.style.animationDuration = duration + 's';
+
+    // Random delay
+    particle.style.animationDelay = Math.random() * 5 + 's';
+
+    // Random size
+    const size = 2 + Math.random() * 4;
+    particle.style.width = size + 'px';
+    particle.style.height = size + 'px';
+
+    // Random opacity
+    particle.style.opacity = 0.3 + Math.random() * 0.5;
+
+    container.appendChild(particle);
+  }
+}
+
 // =============== INITIALIZE ===============
 document.addEventListener('DOMContentLoaded', () => {
   loadProfile();
   loadVagas();
+
+  // Initialize particles
+  createParticles('particles-modal', 50);
+  createParticles('particles-hero', 40);
 });

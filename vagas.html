@@ -34,14 +34,205 @@
     <link rel="stylesheet" href="css/responsive.css">
 
     <!-- Page Specific -->
-    <link rel="stylesheet" href="css/pages/vagas.css">
+    <link rel="stylesheet" href="css/pages/vagas.css?v=4">
 </head>
 <body>
     <!-- Header / Navbar - Loaded dynamically -->
     <div id="header-placeholder"></div>
 
+    <!-- Modal de Configuração Inicial -->
+    <div class="profile-setup-modal" id="profile-setup-modal">
+        <!-- Particles Background -->
+        <div class="hero__particles" id="particles-modal"></div>
+
+        <div class="profile-setup-container">
+            <div class="profile-setup-header">
+                <div class="profile-setup-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </div>
+                <h2 class="profile-setup-title">Monte seu Perfil Profissional</h2>
+                <p class="profile-setup-subtitle">Conte-nos sobre sua formação e interesses para encontrarmos vagas que combinam perfeitamente com você!</p>
+            </div>
+
+            <form id="profile-setup-form" class="profile-setup-form">
+                <!-- Dados Pessoais -->
+                <div class="profile-setup-section">
+                    <h3 class="profile-setup-section-title">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        Dados Acadêmicos
+                    </h3>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="setup-curso">Curso *</label>
+                            <select id="setup-curso" name="curso" class="form-control" required>
+                                <option value="">Selecione seu curso</option>
+                                <option value="Engenharia de Computação">Engenharia de Computação</option>
+                                <option value="Engenharia de Software">Engenharia de Software</option>
+                                <option value="Engenharia de Telecomunicações">Engenharia de Telecomunicações</option>
+                                <option value="Engenharia Elétrica">Engenharia Elétrica</option>
+                                <option value="Engenharia de Controle e Automação">Engenharia de Controle e Automação</option>
+                                <option value="Engenharia de Produção">Engenharia de Produção</option>
+                                <option value="Engenharia Biomédica">Engenharia Biomédica</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="setup-periodo">Período atual *</label>
+                            <select id="setup-periodo" name="periodo" class="form-control" required>
+                                <option value="">Selecione o período</option>
+                                <option value="1">1º período</option>
+                                <option value="2">2º período</option>
+                                <option value="3">3º período</option>
+                                <option value="4">4º período</option>
+                                <option value="5">5º período</option>
+                                <option value="6">6º período</option>
+                                <option value="7">7º período</option>
+                                <option value="8">8º período</option>
+                                <option value="9">9º período</option>
+                                <option value="10">10º período</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Preferências -->
+                <div class="profile-setup-section">
+                    <h3 class="profile-setup-section-title">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                        Preferências de Vaga
+                    </h3>
+
+                    <div class="form-group">
+                        <label>Tipo de vaga desejada *</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="tipo" value="Estágio" checked>
+                                <span>Estágio</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="tipo" value="CLT">
+                                <span>CLT</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Modalidade preferida *</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="modalidade" value="Presencial" checked>
+                                <span>Presencial</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="modalidade" value="Híbrido" checked>
+                                <span>Híbrido</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="modalidade" value="Remoto" checked>
+                                <span>Remoto</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Áreas de Interesse -->
+                <div class="profile-setup-section">
+                    <h3 class="profile-setup-section-title">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                            <polyline points="2 17 12 22 22 17"></polyline>
+                            <polyline points="2 12 12 17 22 12"></polyline>
+                        </svg>
+                        Áreas de Interesse
+                    </h3>
+
+                    <div class="form-group">
+                        <label>Selecione pelo menos 2 áreas *</label>
+                        <div class="checkbox-group checkbox-group--grid" id="setup-areas-interesse">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="areas" value="Backend">
+                                <span>Backend</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="areas" value="Frontend">
+                                <span>Frontend</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="areas" value="Mobile">
+                                <span>Mobile</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="areas" value="IoT">
+                                <span>IoT</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="areas" value="IA">
+                                <span>Inteligência Artificial</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="areas" value="Telecomunicações">
+                                <span>Telecomunicações</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="areas" value="Redes">
+                                <span>Redes</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="areas" value="Segurança">
+                                <span>Segurança</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="areas" value="Cloud">
+                                <span>Cloud</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="areas" value="Data Science">
+                                <span>Data Science</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="areas" value="Automação">
+                                <span>Automação</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="areas" value="DevOps">
+                                <span>DevOps</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-setup-actions">
+                    <button type="submit" class="btn btn--primary btn--lg btn--block">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                        Salvar e Ver Vagas
+                    </button>
+                    <p class="profile-setup-note">* Campos obrigatórios</p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Vagas Content (hidden until profile is configured) -->
+    <div id="vagas-content" class="vagas-content-wrapper" style="display: none;">
+
     <!-- Hero Vagas -->
     <section class="vagas-hero">
+        <!-- Particles Background -->
+        <div class="hero__particles" id="particles-hero"></div>
+
         <div class="container">
             <h1 class="vagas-hero__title">
                 Encontre a <span class="gradient-text">vaga perfeita</span> para você!
@@ -326,6 +517,9 @@
         </div>
     </section>
 
+    </div>
+    <!-- End Vagas Content -->
+
     <!-- Modal de candidatura -->
     <div class="modal" id="candidatura-modal">
         <div class="modal__overlay" id="modal-overlay"></div>
@@ -399,6 +593,6 @@
     <script src="js/features/notifications.js?v=4"></script>
 
     <!-- Page Specific -->
-    <script src="js/pages/vagas.js?v=4"></script>
+    <script src="js/pages/vagas.js?v=6"></script>
 </body>
 </html>
