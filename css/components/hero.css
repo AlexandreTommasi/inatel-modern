@@ -17,7 +17,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('/images/inatel-fachada-tecnologia.jpg');
+  background-image: url('../images/inatel-fachada-tecnologia.jpg');
   background-size: cover;
   background-position: center;
   opacity: 0.25;

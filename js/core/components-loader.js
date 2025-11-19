@@ -3,10 +3,21 @@
  * Carrega componentes HTML reutilizáveis (header, footer, etc)
  */
 
+// =============== BASE PATH DETECTION ===============
+function getBasePath() {
+  const path = window.location.pathname;
+  // Se estiver no GitHub Pages (inatel-modern), usar caminho relativo ao projeto
+  if (path.includes('/inatel-modern/')) {
+    return '/inatel-modern';
+  }
+  return '';
+}
+
 // =============== COMPONENT LOADER ===============
 async function loadComponent(componentName, targetId) {
   try {
-    const response = await fetch(`/components/${componentName}.html`);
+    const basePath = getBasePath();
+    const response = await fetch(`${basePath}/components/${componentName}.html`);
     if (!response.ok) {
       throw new Error(`Failed to load component: ${componentName}`);
     }
