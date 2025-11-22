@@ -32,7 +32,7 @@ async function requestNotificationPermission() {
       showNotification(
         'Notificações ativadas! 🎉',
         'Você receberá alertas quando surgirem vagas compatíveis com seu perfil.',
-        '/images/logo-inatel.png'
+        './images/logo-inatel.png'
       );
 
       return true;
@@ -55,13 +55,13 @@ function showNotification(title, body, icon = null) {
 
   const options = {
     body,
-    icon: icon || '/images/logo-inatel.png',
-    badge: '/images/logo-inatel.png',
+    icon: icon || './images/logo-inatel.png',
+    badge: './images/logo-inatel.png',
     vibrate: [200, 100, 200],
     tag: 'vaga-notification',
     requireInteraction: false,
     data: {
-      url: window.location.origin + '/vagas.html'
+      url: window.location.origin + '/inatel-modern/vagas.html'
     }
   };
 
@@ -75,7 +75,7 @@ function showNotification(title, body, icon = null) {
 
     // Navigate to vagas page if not already there
     if (!window.location.pathname.includes('vagas.html')) {
-      window.location.href = '/vagas.html';
+      window.location.href = './vagas.html';
     }
   };
 
